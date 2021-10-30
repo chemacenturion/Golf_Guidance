@@ -1,11 +1,8 @@
-const {  } = require('../models');
+// const {  } = require('../models');
 
 const resolvers = {
   Query: {
-
-  },
-  Mutation: {
-
+    sayHi: () => 'Hello World!'
   },
 };
 
