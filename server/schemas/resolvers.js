@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Course } = require('../models');
 const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
 
@@ -40,8 +40,15 @@ Mutation: {
 
     return { token, user };
   },
-}
- 
+
+  addCourseData: async (parent, { courseName, holeCount, par, coursRating, slopeRating }) => {
+  const courseData = await Course.create({courseName, holeCount, par, courseRating, slopeRating});
+  return { courseData };
+},
+},
+
+
+
 };
 
 module.exports = resolvers;
