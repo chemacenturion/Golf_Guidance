@@ -4,7 +4,7 @@ const { AuthenticationError } = require('apollo-server-express');
 
 const resolvers = {
 Query: {
-    me: async (parent, { username }, context) => {
+    golfer: async (parent, { username }, context) => {
       
       if (context.user) {
         const userInfo = await User.findOne({_id: context.user._id})
@@ -40,33 +40,6 @@ Mutation: {
 
     return { token, user };
   },
-
-  saveBook: async (parent, args, context) => {
-    if (contents.user) {
-      const updateBooks = await User.findOneAndUpdate(
-        {_id: context.user._id}, 
-        { $addToSet: { savedBooks: args.bookInfo } },
-        { new: true, runValidators: true }
-      )
-      return updateBooks; 
-    }
-    throw new AuthenticationError('Not logged in!')
-  },
-  
-  
-
-  deleteBook: async(parent, args, context) => {
-    if (context.user) {
-      const deletedBook = await User.findOneAndUpdate(
-        { _id: context.user._id },
-        { $pull: { savedBooks: args.bookId } },
-        { new: true }
-      );
-      return deletedBook;
-    }
-    throw new AuthenticationError('Not logged in!')
-  }
-    
 }
  
 };
