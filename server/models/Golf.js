@@ -4,7 +4,7 @@ const { Schema } = require('mongoose');
 const golfSchema = new Schema({
     hole: 
         {
-            type: Number
+        type: Number
         },
     
     par: {
