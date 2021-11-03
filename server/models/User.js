@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const golfSchema = require('./Course');
+const courseSchema = require('./Course');
 
 const userSchema = new Schema (
     {
@@ -22,11 +22,9 @@ const userSchema = new Schema (
             type: String,
             required: true,
         },
+    
     },
-
-    
     {
-    
     toJSON: {
             virtuals: true,
         },
