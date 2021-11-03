@@ -23,9 +23,6 @@ const userSchema = new Schema (
             required: true,
         },
     
-    
-        courseData: [courseSchema],
-    
     },
     {
     toJSON: {
