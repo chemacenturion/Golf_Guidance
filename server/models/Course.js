@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+const { model, Schema } = require('mongoose');
 
 
 const courseSchema = new Schema({
@@ -26,11 +26,14 @@ const courseSchema = new Schema({
     slopeRating: {
         type: Number,
         required: true,
-    }
+    },
 
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    }
 });
 
-
-const Course = model('Course', courseSchema)
+const Course = model('Course', courseSchema);
 
 module.exports = Course;
