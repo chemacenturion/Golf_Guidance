@@ -4,7 +4,7 @@ const { AuthenticationError } = require('apollo-server-express');
 
 const resolvers = {
 Query: {
-    golfer: async (parent, { username }, context) => {
+    getUser: async (parent, { username }, context) => {
       
       if (context.user) {
         const userInfo = await User.findOne({_id: context.user._id})
@@ -13,6 +13,15 @@ Query: {
       }
       throw new AuthenticationError('You are not logged in');
     },
+
+    async getUsers(){
+      try{
+        const users = await User.find();
+        return users;
+      } catch(err){
+        throw new Error(err);
+      }
+    }
   },
 
 
