@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
 import { gql, useMutation } from '@apollo/client';
 
-const Register = () => {
+const Register = (props) => {
     const [values, setValues] = useState({
         username: '',
         email: '',
@@ -14,8 +14,9 @@ const Register = () => {
     }
 
     const [addUser, { loading }] = useMutation(ADD_USER, {
-        update(proxy, result){
-            console.log(result)
+        update(_, result){
+            console.log(result);
+            props.history.push('/')
         },
         variables: values
     })
@@ -27,7 +28,7 @@ const Register = () => {
 
     return (
         <div>
-            <Form onSubmit={onSubmit} noValidate>
+            <Form onSubmit={onSubmit} noValidate className={loading ? "loading" : ''}>
                 <h1>Register</h1>
                 <Form.Input
                     label="Username"
