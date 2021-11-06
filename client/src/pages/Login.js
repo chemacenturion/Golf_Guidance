@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
-import { gql, useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import { AuthContext } from '../context/auth'
+import { LOGIN_USER } from '../utils/mutations';
 
 const Login = (props) => {
     const context = useContext(AuthContext)
@@ -55,16 +56,5 @@ const Login = (props) => {
         </div>
     )
 }
-
-const LOGIN_USER = gql`
-mutation login($email: String!, $password: String!) {
-  login(email: $email, password: $password) {
-    token
-    user {
-      _id
-    }
-  }
-}
-`;
 
 export default Login;
