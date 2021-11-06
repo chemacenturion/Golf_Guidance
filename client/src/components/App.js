@@ -4,10 +4,13 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 import '../css/app.css'
 
+import { AuthProvider } from '../context/auth'
+
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Navbar from './Navbar';
+import Merch from '../pages/Merch';
 
 const client = new ApolloClient({
     uri: '/graphql',
@@ -16,14 +19,17 @@ const client = new ApolloClient({
 
 function App() {
     return (
-        <ApolloProvider client={client}>
-        <Router>
-            <Navbar />
-            <Route exact path='/' component={Home}/>
-            <Route exact path='/Login' component={Login}/>
-            <Route exact path='/Register' component={Register}/>
-        </Router>
-        </ApolloProvider>
+        <AuthProvider>
+            <ApolloProvider client={client}>
+                <Router>
+                    <Navbar />
+                    <Route exact path='/' component={Home}/>
+                    <Route exact path='/Login' component={Login}/>
+                    <Route exact path='/Register' component={Register}/>
+                    <Route exact path='/Merch' component={Merch}/>
+                </Router>
+            </ApolloProvider>
+        </AuthProvider>
     )
 }
 
