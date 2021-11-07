@@ -1,79 +1,58 @@
-import React, { useContext, useState } from 'react'
-import { Menu } from 'semantic-ui-react'
+import React from 'react'
 import logo from '../images/logo.png'
 import { Link } from 'react-router-dom'
 
-import { AuthContext} from '../context/auth'
+import Auth from '../utils/auth'
 
 function Navbar() {
-  const { user, logout } = useContext(AuthContext);
-  const pathname = window.location.pathname;
-  const path = pathname === '/' ? 'home' : pathname.substr(1);
-  const [activeItem, setActiveItem] = useState(path);
-  const handleItemClick = (e, { name }) => setActiveItem(name);
-  const navBar = user ? (
-    <Menu stackable size="massive">
-        <Menu.Item
-          name='home' 
-          as={Link}
-          to="/"
-        >
-          <img src={logo} alt='logo'/>
-        </Menu.Item>
-        <Menu.Menu position='right'>
-        <Menu.Item
-          name='merch'
-          active={activeItem === 'merch'}
-          onClick={handleItemClick}
-          as={Link}
-          to="/merch"
-        >
-          Merch
-        </Menu.Item>
+  function showNavigation() {
+    if (Auth.loggedIn()) {
+      return (
+        <ul className="flex-row">
+          <li className="mx-1">
+            <Link to="/Merch">
+              Merch
+            </Link>
+          </li>
+          <li className="mx-1">
+            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
+            <a href="/" onClick={() => Auth.logout()}>
+              Logout
+            </a>
+          </li>
+        </ul>
+      );
+    } else {
+      return (
+        <ul className="flex-row">
+          <li className="mx-1">
+            <Link to="/register">
+              Register
+            </Link>
+          </li>
+          <li className="mx-1">
+            <Link to="/login">
+              Login
+            </Link>
+          </li>
+        </ul>
+      );
+    }
+  }
 
-        <Menu.Item
-          name='logout'
-          onClick={logout}
-        >
-          Logout
-        </Menu.Item>
-        </Menu.Menu>
-      </Menu>
-  ) : (
-    <Menu stackable size="massive">
-        <Menu.Item
-          name='home'
-          active={activeItem === 'home'}
-          onClick={handleItemClick}
-          as={Link}
-          to="/"
-        >
-        <img src={logo} alt='logo'/>
-        </Menu.Item>
-        <Menu.Menu position='right'>
-        <Menu.Item
-          name='login'
-          active={activeItem === 'login'}
-          onClick={handleItemClick}
-          as={Link}
-          to="/login"
-        >
-          Login
-        </Menu.Item>
+  return (
+    <header className="flex-row px-1">
+      <h1>
+        <Link to="/">
+          Home
+        </Link>
+      </h1>
 
-        <Menu.Item
-          name='register'
-          active={activeItem === 'register'}
-          onClick={handleItemClick}
-          as={Link}
-          to="/register"
-        >
-          Register
-        </Menu.Item>
-        </Menu.Menu>
-      </Menu>
-  )
-    return navBar
+      <nav>
+        {showNavigation()}
+      </nav>
+    </header>
+  );
 }
 
 export default Navbar

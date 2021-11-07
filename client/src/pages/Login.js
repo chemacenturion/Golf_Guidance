@@ -1,44 +1,45 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Button, Form } from 'semantic-ui-react';
 import { useMutation } from '@apollo/client';
-import { AuthContext } from '../context/auth'
+
+import Auth from '../utils/auth'
 import { LOGIN_USER } from '../utils/mutations';
 
-const Login = (props) => {
-    const context = useContext(AuthContext)
-    const [values, setValues] = useState({
-        username: '',
-        email: '',
-        password: ''
-    })
-
+function Login(props) {
+    const [formState, setFormState] = useState({ email: '', password: '' });
+    const [login, { error }] = useMutation(LOGIN_USER);
+  
+    const onSubmit = async (event) => {
+      event.preventDefault();
+      try {
+        const mutationResponse = await login({
+          variables: { email: formState.email, password: formState.password },
+        });
+        const token = mutationResponse.data.login.token;
+        Auth.login(token);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+  
     const onChange = (event) => {
-        setValues({ ...values, [event.target.name]: event.target.value});
-    }
-
-    const [loginUser, { loading }] = useMutation(LOGIN_USER, {
-        update(_, { data: { login: userData}}){
-            context.login(userData)
-            props.history.push('/')
-        },
-        variables: values
-    })
-
-    const onSubmit = (event) => {
-        event.preventDefault();
-        loginUser()
-    }
+      const { name, value } = event.target;
+      setFormState({
+        ...formState,
+        [name]: value,
+      });
+    };
 
     return (
         <div>
-            <Form onSubmit={onSubmit} noValidate className={loading ? "loading" : ''}>
+            <Form onSubmit={onSubmit}>
                 <h1>Login</h1>
                 <Form.Input
                     label="Email"
                     placeholder="Email.."
                     name="email"
                     type="email"
-                    value={values.email}
+                    id="email"
                     onChange={onChange}
                     />
                 <Form.Input
@@ -46,7 +47,7 @@ const Login = (props) => {
                     placeholder="Password.."
                     name="password"
                     type="password"
-                    value={values.password}
+                    id="pwd"
                     onChange={onChange}
                     />
                     <Button type="submit" secondary>

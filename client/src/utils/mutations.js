@@ -25,7 +25,6 @@ mutation addUser(
     token
     user {
       _id
-      username
     }
   }
 }
