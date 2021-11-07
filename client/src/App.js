@@ -2,13 +2,13 @@ import React from 'react';
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { setContext } from '@apollo/client/link/context';
-import 'semantic-ui-css/semantic.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/app.css'
 
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Navbar from './components/Navbar';
+import Navigation from './components/Navigation';
 import Merch from './pages/Merch';
 
 
@@ -35,7 +35,7 @@ function App() {
     return (
         <ApolloProvider client={client}>
             <Router>
-                <Navbar />
+                <Navigation />
                     <Switch>
                         <Route exact path='/' component={Home}/>
                         <Route exact path='/Login' component={Login}/>

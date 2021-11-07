@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Button, Form } from 'semantic-ui-react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
+import {Container, Form, Button } from 'react-bootstrap'
 import Auth from '../utils/auth';
 
 function Register(props) {
@@ -30,38 +30,41 @@ function Register(props) {
     };
 
     return (
-        <div>
-            <Form onSubmit={onSubmit}>
-                <h1>Register</h1>
-                <Form.Input
-                    label="Username"
-                    placeholder="Username.."
-                    name="username"
-                    type="text"
-                    id="username"
-                    onChange={onChange}
-                    />
-                <Form.Input
-                    label="Email"
-                    placeholder="Email.."
-                    name="email"
-                    type="email"
-                    id="email"
-                    onChange={onChange}
-                    />
-                <Form.Input
-                    label="Password"
-                    placeholder="Password.."
-                    name="password"
-                    type="password"
-                    id="pwd"
-                    onChange={onChange}
-                    />
-                    <Button type="submit" secondary>
-                        Register
-                    </Button>
-            </Form>
-        </div>
+      <Container className="mt-5">
+        <Form onSubmit={onSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicUsername">
+            <Form.Label>Username</Form.Label>
+            <Form.Control 
+              label="Username"
+              placeholder="Username.."
+              name="Username"
+              type="Username"
+              onChange={onChange}/>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control 
+              label="Email"
+              placeholder="Email.."
+              name="email"
+              type="email"
+              onChange={onChange}/>
+          </Form.Group>
+        
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control 
+              label="Password"
+              placeholder="Password.."
+              name="password"
+              type="password"
+              onChange={onChange} />
+          </Form.Group>
+          <Button variant="secondary" type="submit">
+            Register
+          </Button>
+        </Form>
+      </Container>
     )
 }
 
