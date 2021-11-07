@@ -37,7 +37,7 @@ function Register(props) {
             <Form.Control 
               label="Username"
               placeholder="Username.."
-              name="Username"
+              name="username"
               type="text"
               onChange={onChange}/>
           </Form.Group>
