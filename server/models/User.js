@@ -24,15 +24,15 @@ const userSchema = new Schema (
             required: true,
         },
 
-        orders: [Purchase.schema],
+        purchases: [Purchase.schema],
         scorecards: [Scorecard.schema]
-    });
-//     {
-//     toJSON: {
-//             virtuals: true,
-//         },
-//     }
-// );
+    },
+    {
+    toJSON: {
+            virtuals: true,
+        },
+    }
+);
 
 userSchema.pre('save', async function (next) {
     if (this.isNew || this.isModified('password')) {

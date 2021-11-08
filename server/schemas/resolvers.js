@@ -1,8 +1,8 @@
-const { User, Course, Order, Merch } = require('../models');
+const { User, Course, Purchase, Merch } = require('../models');
 const { signToken } = require('../utils/auth');
 const { AuthenticationError } = require('apollo-server-express');
 require('dotenv').config()
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+// const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const resolvers = {
 Query: {
@@ -11,28 +11,28 @@ Query: {
     return await Merch.find(); 
   },
 
-  getProductById: async (parent, {_id }) => {
+  getMerchById: async (parent, {_id }) => {
     return await Merch.findById(_id)
   },
 
-  getOrder: async (parent, { id }, context) => {
+  getPurchase: async (parent, { id }, context) => {
     if (context.user) {
 
       const user = await User.findById(context.user_id)
-      return user.orders.id(_id); 
+      return user.purchases.id(_id); 
     }
     throw new AuthenticationError("Not logged in");
   },
 
   checkout: async (parent, args, context) => {
     const url = new URL(context.headers.referer).origin;
-    const order = new Order({ merch: args.merch });
+    const purchase = new Purchase({ merch: args.merch });
     const line_items = [];
 
     const { merch } = await order.populate('merch').execPopulate();
 
     for (let i = 0; i < merch.length; i++) {
-      const product = await stripe.merch.create({
+      const merch = await stripe.merch.create({
         name: merch[i].name,
         description: merch[i].description,
         images: [`${url}/images/${merch[i].image}`]
@@ -122,23 +122,23 @@ Mutation: {
       return { token, user };
     },
 
-    updateProduct: async (parent, { _id, quantity }) => {
+    updateMerch: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
 
-      return await Product.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
+      return await Merch.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
 
       
 
     },
 
-    addOrder: async (parent, { products }, context) => {
+    addPurchase: async (parent, { products }, context) => {
       console.log(context);
       if (context.user) {
-        const order = new Order({ products });
+        const purchase = new Purchase({ merches });
 
         await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
 
-        return order;
+        return purchase;
       }
 
       throw new AuthenticationError('Not logged in');
