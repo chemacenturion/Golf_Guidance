@@ -1,6 +1,6 @@
 const db = require('./connection');
 
-const { Merch, Order } = require('../models');
+const { Merch, Purchase } = require('../models');
 
 db.once('open', async () => {
     await Merch.deleteMany();

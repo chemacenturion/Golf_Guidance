@@ -12,7 +12,7 @@ const typeDefs = gql`
     price: Float
   }
 
-  type Order {
+  type Purchase {
     _id: ID
     purchaseDate: String
     products: [Merch]
@@ -26,15 +26,75 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
+    purchases: [Purchase]
+    scorecards: [Scorecard]
+  }
+
+  type Scorecard {
+    
   }
 
   type Course {
     _id: ID
-    courseName: String,
-    holeCount: Int,
-    par: Int,
-    courseRating: Int,
+    courseName: String
+    par: Int
+    courseRating: Int
     slopeRating: Int
+    scoreCardTemplate: {
+      holeOne: {
+          par: Number,
+      },
+      holeTwo: {
+          par: Number,
+      },
+      holeThree: {
+          par: Number,
+      },
+      holeFour: {
+          par: Number,
+      },
+      holeFive: {
+          par: Number,
+      },
+      holeSix: {
+          par: Number,
+      },
+      holeSeven: {
+          par: Number,
+      },
+      holeEight: {
+          par: Number,
+      },
+      holeNine: {
+          par: Number,
+      },
+      holeTen: {
+          par: Number,
+      },
+      holeEleven: {
+          par: Number,
+      },
+      holeTwelve: {
+          par: Number,
+      },
+      holeThirteen: {
+          par: Number,
+      },
+      holeFourteen: {
+          par: Number,
+      },
+      holeFifteen: {
+          par: Number,
+      },
+      holeSixteen: {
+          par: Number,
+      },
+      holeSeventeen: {
+          par: Number,
+      },
+      holeEighteen: {
+          par: Number,
+      }
   }
 
   type Auth {
@@ -55,7 +115,7 @@ const typeDefs = gql`
 
   type Mutation {
     addUser(username: String, email: String, password: String): Auth
-    addCourseData(courseName: String, holeCount: Int, par: Int, courseRating: Int, slopeRating: Int): Course
+    addCourseData(courseName: String, par: Int, courseRating: Int, slopeRating: Int,): Course
     addOrder(merch: [ID]!): Order
     updateProduct(_id: ID!, quantity: Int!): Merch
     login(email: String!, password: String!): Auth

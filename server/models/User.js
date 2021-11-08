@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const Order = require('./Order');
+const Purchase = require('./Purchase');
+const Scorecard = require('./Scorecard');
 
 
 const userSchema = new Schema (
@@ -23,16 +24,15 @@ const userSchema = new Schema (
             required: true,
         },
 
-        orders: [Order.schema],
-    
-    
-    },
-    {
-    toJSON: {
-            virtuals: true,
-        },
-    }
-);
+        orders: [Purchase.schema],
+        scorecards: [Scorecard.schema]
+    });
+//     {
+//     toJSON: {
+//             virtuals: true,
+//         },
+//     }
+// );
 
 userSchema.pre('save', async function (next) {
     if (this.isNew || this.isModified('password')) {

@@ -1,6 +1,8 @@
 const User = require('./User');
 const Course = require('./Course');
+const Scorecard = require('./Scorecard')
 const Merch = require('./Merch')
-const Order = require('./Order')
+const Purchase = require('./Purchase')
 
-module.exports = { User, Course, Merch, Order };
+
+module.exports = { User, Course, Scorecard, Merch, Purchase };

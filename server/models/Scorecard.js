@@ -1,7 +1,7 @@
 const { model, Schema } = require('mongoose');
 
 
-const courseSchema = new Schema({
+const scorecardSchema = new Schema({
     
     courseName: {
         type: String,
@@ -26,62 +26,80 @@ const courseSchema = new Schema({
     scoreCardTemplate: {
         holeOne: {
             par: Number,
+            score: ""
         },
         holeTwo: {
             par: Number,
+            score: ""
         },
         holeThree: {
             par: Number,
+            score: ""
         },
         holeFour: {
             par: Number,
+            score: ""
         },
         holeFive: {
             par: Number,
+            score: ""
         },
         holeSix: {
             par: Number,
+            score: ""
         },
         holeSeven: {
             par: Number,
+            score: ""
         },
         holeEight: {
             par: Number,
+            score: ""
         },
         holeNine: {
             par: Number,
+            score: ""
         },
         holeTen: {
             par: Number,
+            score: ""
         },
         holeEleven: {
             par: Number,
+            score: ""
         },
         holeTwelve: {
             par: Number,
+            score: ""
         },
         holeThirteen: {
             par: Number,
+            score: ""
         },
         holeFourteen: {
             par: Number,
+            score: ""
         },
         holeFifteen: {
             par: Number,
+            score: ""
         },
         holeSixteen: {
             par: Number,
+            score: ""
         },
         holeSeventeen: {
             par: Number,
+            score: ""
         },
         holeEighteen: {
             par: Number,
+            score: ""
         }
     }
 
 });
 
-const Course = model('Course', courseSchema);
+const Scorecard = model('Scorecard', scorecardSchema);
 
-module.exports = Course;
+module.exports = Scorecard;

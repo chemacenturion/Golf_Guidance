@@ -15,7 +15,6 @@ const merchSchema = new Schema({
 
     image: {
         type: String,
-        
     },
 
     price: {
