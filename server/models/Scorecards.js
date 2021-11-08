@@ -1,7 +1,7 @@
 const { model, Schema } = require('mongoose');
 
 
-const courseSchema = new Schema({
+const scorecardSchema = new Schema({
     
     courseName: {
         type: String,
@@ -31,80 +31,80 @@ const courseSchema = new Schema({
     scoreCardTemplate: {
     holeOne: {
         par: Number,
-        // score: Number
+        score: ""
     },
     holeTwo: {
         par: Number,
-        // score: Number
+        score: ""
     },
     holeThree: {
         par: Number,
-        // score: Number
+        score: ""
     },
     holeFour: {
         par: Number,
-        // score: Number
+        score: ""
     },
     holeFive: {
         par: Number,
-        // score: Number
+        score: ""
     },
     holeSix: {
         par: Number,
-        // score: Number
+        score: ""
     },
     holeSeven: {
         par: Number,
-        // score: Number
+        score: ""
     },
     holeEight: {
         par: Number,
-        // score: Number
+        score: ""
     },
     holeNine: {
         par: Number,
-        // score: Number
+        score: ""
     },
     holeTen: {
         par: Number,
-        // score: Number
+        score: ""
     },
     holeEleven: {
         par: Number,
-        // score: Number
+        score: ""
     },
     holeTwelve: {
         par: Number,
-        // score: Number
+        score: ""
     },
     holeThirteen: {
         par: Number,
-        // score: Number
+        score: ""
     },
     holeFourteen: {
         par: Number,
-        // score: Number
+        score: ""
     },
     holeFifteen: {
         par: Number,
-        // score: Number
+        score: ""
     },
     holeSixteen: {
         par: Number,
-        // score: Number
+        score: ""
     },
     holeSeventeen: {
         par: Number,
-        // score: Number
+        score: ""
     },
     holeEighteen: {
         par: Number,
-        // score: Number
+        score: ""
     }
     }
 
 });
 
-const Course = model('Course', courseSchema);
+const Scorecard = model('Scorecard', scorecardSchema);
 
-module.exports = Course;
+module.exports = Scorecard;
