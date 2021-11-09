@@ -6,7 +6,7 @@ import { GET_COURSE_DATA } from '../utils/queries'
 function CourseData() {
     const { data, loading } = useQuery(GET_COURSE_DATA);
 
-    const course = data?.course || [];
+    const courses = data?.courses || [];
 
   return (
     <>
@@ -17,7 +17,7 @@ function CourseData() {
             <div>Loading...</div>
           ) : (
             <>
-              course={course}
+              course={courses}
             </>
           )}
         </div>
