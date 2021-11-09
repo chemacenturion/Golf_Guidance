@@ -47,7 +47,7 @@ const typeDefs = gql`
   type Query {
     getAllUsers: [User]
     getUserbyId: User
-    getCourseData: [Course]
+    getCourses: [Course]
     getMerch(name: String, description: String, image: String, price: Int, quantity: Int): [Merch]
     getMerchById(_id: ID!): Merch
     getPurchase(_id: ID!): Purchase

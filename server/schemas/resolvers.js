@@ -78,7 +78,7 @@ Query: {
     throw new AuthenticationError('You are not logged in');
   },
 
-  getCourseData: async () => {
+  getCourses: async () => {
 
   return Course.find({})
     

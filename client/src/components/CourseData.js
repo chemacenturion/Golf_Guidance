@@ -1,10 +1,10 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { GET_COURSE_DATA } from '../utils/queries'
+import { GET_COURSES } from '../utils/queries'
 
 
 function CourseData() {
-    const { data, loading } = useQuery(GET_COURSE_DATA);
+    const { data, loading } = useQuery(GET_COURSES);
 
     const courses = data?.courses || [];
 
