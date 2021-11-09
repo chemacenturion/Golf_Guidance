@@ -7,7 +7,7 @@ require('dotenv').config()
 const resolvers = {
 Query: {
 
-  getMerch: async() => {
+  merch: async() => {
     return await Merch.find(); 
   },
 
@@ -96,6 +96,11 @@ Mutation: {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
       return { token, user };
+    },
+
+    addMerch: async (parent, { name, description, image, price, quantity }) => {
+      const merch = await Merch.create({ name, description, image, price, quantity });
+      return merch
     },
 
     addCourseData: async (parent, { courseName, par, courseRating, slopeRating }) => {
