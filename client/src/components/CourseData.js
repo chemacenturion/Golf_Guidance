@@ -4,20 +4,24 @@ import { GET_COURSE_DATA } from '../utils/queries'
 
 
 function CourseData() {
-  const { data, loading, error } = useQuery(GET_COURSE_DATA);
+    const { data, loading } = useQuery(GET_COURSE_DATA);
 
-    if (loading) return "Loading...";
-    if (error) return `Error! ${error.message}`;
+    const course = data?.course || [];
 
   return (
     <>
-    <select name="course" onChange={onCourseSelected}>
-    {data.course.map(course => (
-      <option key={course.id} value={course.courseName}>
-        {course.courseName}
-      </option>
-    ))}
-  </select>
+        <div className="flex-row justify-center">
+        <div className="col-12 col-md-8 mb-3">
+          {/* If the data is still loading, render a loading message */}
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            <>
+              course={course}
+            </>
+          )}
+        </div>
+      </div>
     </>
   );
 }
