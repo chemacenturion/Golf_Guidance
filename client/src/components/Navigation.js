@@ -8,6 +8,7 @@ function Navigation() {
     if (Auth.loggedIn()) {
       return (
       <>
+        <Nav.Link href="/scorecard">Scorecard</Nav.Link>
         <Nav.Link href="/merch">Merch</Nav.Link>
         <Nav.Link href="/" onClick={() => Auth.logout()}>Logout</Nav.Link>
       </>
