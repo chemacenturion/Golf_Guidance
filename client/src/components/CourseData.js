@@ -6,8 +6,11 @@ import { GET_COURSE_DATA } from '../utils/queries'
 function CourseData() {
   const { data, loading, error } = useQuery(GET_COURSE_DATA);
 
-  if (loading) return "Loading...";
-  if (error) return <pre>{error.message}</pre>
+    if (loading) return "Loading...";
+    if (error) return <pre>{error.message}</pre>
+    if (data) {
+        course = data.course
+    }
 
   return (
     <div>
