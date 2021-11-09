@@ -6,6 +6,7 @@ query courses {
   _id
   courseName
   par
+  courseRating
   slopeRating
   }
 }
