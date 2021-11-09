@@ -7,20 +7,18 @@ function CourseData() {
   const { data, loading, error } = useQuery(GET_COURSE_DATA);
 
     if (loading) return "Loading...";
-    if (error) return <pre>{error.message}</pre>
+    if (error) return `Error! ${error.message}`;
 
   return (
-    <div>
-      <h1>Course Data</h1>
-        {data.course.map((course) => (
-          <>
-          <p key={course.courseName}></p>
-          <p key={course.par}></p>
-          <p key={course.courseRating}></p>
-          <p key={course.slopeRating}></p>
-          </>
-        ))}
-    </div>
+    <>
+    <select name="course" onChange={onCourseSelected}>
+    {data.course.map(course => (
+      <option key={course.id} value={course.courseName}>
+        {course.courseName}
+      </option>
+    ))}
+  </select>
+    </>
   );
 }
 
