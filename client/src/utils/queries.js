@@ -9,5 +9,15 @@ query courses {
   courseRating
   slopeRating
   }
+}`
+export const GET_MERCH = gql`
+query getMerch {
+  merch {
+  name
+  description
+  image
+  price
+  quantity
+  }
 }
 `;
