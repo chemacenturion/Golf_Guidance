@@ -1,22 +1,27 @@
-import React from 'react'; 
-import { useQuery } from '@apollo/client';
-import { GET_COURSE_DATA } from '../utils/queries';
-
-const CourseData = () => {
-    const { loading, data } = useQuery(GET_COURSE_DATA);
-    const courseStats = data?.courseStats || []; 
+import React from "react";
+import { useQuery } from "@apollo/client";
+import { GET_COURSE_DATA } from '../utils/queries'
 
 
-return (
+function CourseData() {
+  const { data, loading, error } = useQuery(GET_COURSE_DATA);
 
+  if (loading) return "Loading...";
+  if (error) return <pre>{error.message}</pre>
+
+  return (
     <div>
-        {loading ? (
-        <div>loading</div>
-        ): (
-            <p>{courseStats}</p>
-        )}
+      <h1>Course Data</h1>
+        {data.course.map((course) => (
+          <>
+          <p key={course.courseName}></p>
+          <p key={course.par}></p>
+          <p key={course.courseRating}></p>
+          <p key={course.slopeRating}></p>
+          </>
+        ))}
     </div>
-);
-};
+  );
+}
 
-export default CourseData; 
+export default CourseData

@@ -28,4 +28,20 @@ mutation addUser(
     }
   }
 }
-  `;
+`;
+
+export const ADD_COURSE_DATA = gql`
+mutation addCourseData(
+  $courseName: String!,
+  $par: Int!,
+  $courseRating: Float!,
+  $slopeRating: Int,
+) {
+  addCourseData(
+    courseName: $courseName,
+    par: $par,
+    courseRating: $courseRating,
+    slopeRating: $slopeRating
+  )
+}
+`;

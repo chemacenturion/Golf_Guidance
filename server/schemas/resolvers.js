@@ -98,8 +98,8 @@ Mutation: {
       return { token, user };
     },
 
-    addCourseData: async (parent, { courseName, holeCount, par, courseRating, slopeRating }) => {
-      const courseData = await Course.create({ courseName, holeCount, par, courseRating, slopeRating });
+    addCourseData: async (parent, { courseName, par, courseRating, slopeRating }) => {
+      const courseData = await Course.create({ courseName, par, courseRating, slopeRating });
       return courseData;
     },
     
