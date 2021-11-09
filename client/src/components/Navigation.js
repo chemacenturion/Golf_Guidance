@@ -25,7 +25,7 @@ function Navigation() {
 
   return (
     <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="/home"><img src={logo100} alt="logo" /></Navbar.Brand>
+        <Navbar.Brand href="/"><img src={logo100} alt="logo" /></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
               <Nav>
