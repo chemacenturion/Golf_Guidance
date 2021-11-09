@@ -8,9 +8,6 @@ function CourseData() {
 
     if (loading) return "Loading...";
     if (error) return <pre>{error.message}</pre>
-    if (data) {
-        course = data.course
-    }
 
   return (
     <div>
