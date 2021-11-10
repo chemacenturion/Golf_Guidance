@@ -6,7 +6,8 @@ import { GET_COURSES } from '../utils/queries'
 function CourseData() {
     const { data, loading } = useQuery(GET_COURSES);
 
-    const courses = data?.courses || [];
+    const courses = data?.getCourses || []; 
+    console.log(data?.getCourses)
 
   return (
     <>
@@ -17,7 +18,7 @@ function CourseData() {
             <div>Loading...</div>
           ) : (
             <>
-              course={courses}
+              <p>{courses[0].courseName}</p>
             </>
           )}
         </div>
