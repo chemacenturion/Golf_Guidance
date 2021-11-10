@@ -30,14 +30,77 @@ mutation addUser(
 }
 `;
 
-// export const ADD_COURSE_DATA = gql`
-// mutation addCourseData(
-//   $courseName: String!,
-//   $par: Int!,
-//   $courseRating: Float!,
-//   $slopeRating: Int,
-// ) {
-  
-  
-// }
-// `;
+export const ADD_COURSE_DATA = gql`
+mutation addCourseData(
+  $courseName: String!,
+  $par: Int!,
+  $courseRating: Float!,
+  $slopeRating: Int!,
+  $holeOnePar: Int!,
+  $holeTwoPar: Int!,
+  $holeThreePar: Int!,
+  $holeFourPar: Int!,
+  $holeFivePar: Int!,
+  $holeSixPar: Int!,
+  $holeSevenPar: Int!,
+  $holeEightPar: Int!,
+  $holeNinePar: Int!,
+  $holeTenPar: Int!,
+  $holeElevenPar: Int!,
+  $holeTwelvePar: Int!,
+  $holeThirteenPar: Int!,
+  $holeFourteenPar: Int!,
+  $holeFifteenPar: Int!,
+  $holeSixteenPar: Int!,
+  $holeSeventeenPar: Int!,
+  $holeEighteenPar: Int!,
+) {
+  addCourseData(
+    courseName: $courseName,
+    par: $par,
+    courseRating: $courseRating,
+    slopeRating: $slopeRating,
+    holeOnePar: $holeOnePar,
+    holeTwoPar: $holeTwoPar,
+    holeThreePar: $holeThreePar,
+    holeFourPar: $holeFourPar,
+    holeFivePar: $holeFivePar,
+    holeSixPar: $holeSixPar,
+    holeSevenPar: $holeSevenPar,
+    holeEightPar: $holeEightPar,
+    holeNinePar: $holeNinePar,
+    holeTenPar: $holeTenPar,
+    holeElevenPar: $holeElevenPar,
+    holeTwelvePar: $holeTwelvePar,
+    holeThirteenPar: $holeThirteenPar,
+    holeFourteenPar: $holeFourteenPar,
+    holeFifteenPar: $holeFifteenPar,
+    holeSixteenPar: $holeSixteenPar,
+    holeSeventeenPar: $holeSeventeenPar,
+    holeEighteenPar: $holeEighteenPar
+  )  {
+    courseName
+    par
+    slopeRating
+    courseRating
+    holeOnePar
+    holeTwoPar
+    holeThreePar
+    holeFourPar
+    holeFivePar
+    holeSixPar
+    holeSevenPar
+    holeEightPar
+    holeNinePar
+    holeTenPar
+    holeElevenPar
+    holeTwelvePar
+    holeThirteenPar
+    holeFourteenPar
+    holeFifteenPar
+    holeSixteenPar
+    holeSeventeenPar
+    holeEighteenPar
+  }
+}
+`;
