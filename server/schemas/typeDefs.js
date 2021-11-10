@@ -49,7 +49,7 @@ const typeDefs = gql`
     getUserbyId: User
     getCourses: [Course]
     merch(name: String, description: String, image: String, price: Int, quantity: Int): [Merch]
-    getMerchById(_id: ID!): Merch
+    merchById(_id: String): Merch
     getPurchase(_id: ID!): Purchase
     checkout(products: [ID]!): Checkout
   }
@@ -61,6 +61,7 @@ const typeDefs = gql`
     addPurchase(merch: [ID]!): Purchase
     updateMerch(_id: ID!, quantity: Int!): Merch
     login(email: String!, password: String!): Auth
+    
   }
 `;
 

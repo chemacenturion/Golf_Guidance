@@ -11,7 +11,7 @@ Query: {
     return await Merch.find(); 
   },
 
-  getMerchById: async (parent, {_id }) => {
+  merchById: async (parent, {_id }) => {
     return await Merch.findById(_id)
   },
 
