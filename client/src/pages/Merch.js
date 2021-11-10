@@ -3,22 +3,30 @@ import { GET_MERCH } from '../utils/queries';
 import { useQuery } from '@apollo/client';
 
 
-const Merch = function Merchandise() {
-
+const Merch =  () => {
     const { loading, data, error } = useQuery(GET_MERCH);
-    const merch = data?.merch || []; 
-
-   if (loading) return 'loading...';
-   if (error) return `Error! ${error.message}`;
-
-   return (
-       <div>Check out our Merchandise!
-       {merch.map(item => (
-          <div>{merch.name}</div>
-       ))}
-       </div>
+    const merchandise = data?.merch || []; 
+    if(!merchandise.length) {
+        return<h3>No items at this time</h3>
+    }
+   
+ return (
+    
+            <div>
+            {merchandise && merchandise.map((items) => (
+            <div key={items._id}>
+                <p>{items.name}</p>
+                <p>{items.image}</p>
+                <p>{items.description}</p>
+                <p>${items.price}</p>
+                
+            </div>
+                
+            ))}
+            </div>
+      
    );
-}
+};
 
 
 
