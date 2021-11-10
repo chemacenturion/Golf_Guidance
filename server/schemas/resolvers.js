@@ -90,64 +90,88 @@ Query: {
 
 
 
-Mutation: {
-    
-    addUser: async (parent, { username, email, password }) => {
-      const user = await User.create({ username, email, password });
-      const token = signToken(user);
-      return { token, user };
-    },
-
-    addMerch: async (parent, { name, description, image, price, quantity }) => {
-      const merch = await Merch.create({ name, description, image, price, quantity });
-      return merch
-    },
-
-    addCourseData: async (parent, { courseName, par, courseRating, slopeRating }) => {
-      const courseData = await Course.create({ courseName, par, courseRating, slopeRating });
-      return courseData;
-    },
-    
-    
-    login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
-
-      if (!user) {
-        throw new AuthenticationError('Incorrect credentials');
-      }
-
-      const correctPw = await user.isCorrectPassword(password);
-
-      if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
-      }
-
-      const token = signToken(user);
-
-      return { token, user };
-    },
-
-    updateMerch: async (parent, { _id, quantity }) => {
-      const decrement = Math.abs(quantity) * -1;
-
-      return await Merch.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
-
+  Mutation: {
       
+      addUser: async (parent, { username, email, password }) => {
+        const user = await User.create({ username, email, password });
+        const token = signToken(user);
+        return { token, user };
+      },
 
-    },
+      addMerch: async (parent, { name, description, image, price, quantity }) => {
+        const merch = await Merch.create({ name, description, image, price, quantity });
+        return merch
+      },
 
-    addPurchase: async (parent, { products }, context) => {
-      console.log(context);
-      if (context.user) {
-        const purchase = new Purchase({ merches });
+      addCourseData: async (parent, { courseName, par, courseRating, slopeRating, holeOnePar, holeTwoPar, holeThreePar, holeFourPar, holeFivePar, holeSixPar, holeSevenPar, holeEightPar, holeNinePar, holeTenPar, holeElevenPar, holeTwelvePar, holeThirteenPar, holeFourteenPar, holeFifteenPar, holeSixteenPar, holeSeventeenPar, holeEighteenPar }) => {
+        const courseData = await Course.create(
+          {
+            courseName, 
+            par, 
+            courseRating, 
+            slopeRating,
+            holeOnePar,
+            holeTwoPar,
+            holeThreePar,
+            holeFourPar,
+            holeFivePar,
+            holeSixPar,
+            holeSevenPar,
+            holeEightPar,
+            holeNinePar,
+            holeTenPar,
+            holeElevenPar,
+            holeTwelvePar,
+            holeThirteenPar,
+            holeFourteenPar,
+            holeFifteenPar,
+            holeSixteenPar,
+            holeSeventeenPar,
+            holeEighteenPar
+          });
+        return courseData;
+      },
+      
+      
+      login: async (parent, { email, password }) => {
+        const user = await User.findOne({ email });
 
-        await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+        if (!user) {
+          throw new AuthenticationError('Incorrect credentials');
+        }
 
-        return purchase;
+        const correctPw = await user.isCorrectPassword(password);
+
+        if (!correctPw) {
+          throw new AuthenticationError('Incorrect credentials');
+        }
+
+        const token = signToken(user);
+
+        return { token, user };
+      },
+
+      updateMerch: async (parent, { _id, quantity }) => {
+        const decrement = Math.abs(quantity) * -1;
+
+        return await Merch.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
+
+        
+
+      },
+
+      addPurchase: async (parent, { products }, context) => {
+        console.log(context);
+        if (context.user) {
+          const purchase = new Purchase({ merches });
+
+          await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
+
+          return purchase;
+        }
+
+        throw new AuthenticationError('Not logged in');
       }
-
-      throw new AuthenticationError('Not logged in');
-    }
   },
 };
 

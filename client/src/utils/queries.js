@@ -7,6 +7,24 @@ query getCourses {
     par
     courseRating
     slopeRating
+    holeOnePar
+    holeTwoPar
+    holeThreePar
+    holeFourPar
+    holeFivePar
+    holeSixPar
+    holeSevenPar
+    holeEightPar
+    holeNinePar
+    holeTenPar
+    holeElevenPar
+    holeTwelvePar
+    holeThirteenPar
+    holeFourteenPar
+    holeFifteenPar
+    holeSixteenPar
+    holeSeventeenPar
+    holeEighteenPar
   }
 }`
 export const GET_MERCH = gql`

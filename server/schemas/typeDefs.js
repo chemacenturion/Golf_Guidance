@@ -36,6 +36,24 @@ const typeDefs = gql`
     par: Int
     courseRating: Float
     slopeRating: Int
+    holeOnePar: Int
+    holeTwoPar: Int
+    holeThreePar: Int
+    holeFourPar: Int
+    holeFivePar: Int
+    holeSixPar: Int
+    holeSevenPar: Int
+    holeEightPar: Int
+    holeNinePar: Int
+    holeTenPar: Int
+    holeElevenPar: Int
+    holeTwelvePar: Int
+    holeThirteenPar: Int
+    holeFourteenPar: Int
+    holeFifteenPar: Int
+    holeSixteenPar: Int
+    holeSeventeenPar: Int
+    holeEighteenPar: Int
   }
 
   type Auth {
@@ -47,6 +65,7 @@ const typeDefs = gql`
   type Query {
     getAllUsers: [User]
     getUserbyId: User
+    getCoursebyId: Course
     getCourses: [Course]
     merch(name: String, description: String, image: String, price: Int, quantity: Int): [Merch]
     merchById(_id: String): Merch
@@ -57,7 +76,30 @@ const typeDefs = gql`
   type Mutation {
     addMerch(name: String, description: String, image: String, price: Int, quantity: Int): Merch
     addUser(username: String, email: String, password: String): Auth
-    addCourseData(courseName: String, par: Int, courseRating: Float, slopeRating: Int): Course
+    addCourseData(
+      courseName: String, 
+      par: Int, 
+      courseRating: Float, 
+      slopeRating: Int,
+      holeOnePar: Int,
+      holeTwoPar: Int,
+      holeThreePar: Int,
+      holeFourPar: Int,
+      holeFivePar: Int,
+      holeSixPar: Int,
+      holeSevenPar: Int,
+      holeEightPar: Int,
+      holeNinePar: Int,
+      holeTenPar: Int,
+      holeElevenPar: Int,
+      holeTwelvePar: Int,
+      holeThirteenPar: Int,
+      holeFourteenPar: Int,
+      holeFifteenPar: Int,
+      holeSixteenPar: Int,
+      holeSeventeenPar: Int,
+      holeEighteenPar: Int
+      ): Course
     addPurchase(merch: [ID]!): Purchase
     updateMerch(_id: ID!, quantity: Int!): Merch
     login(email: String!, password: String!): Auth

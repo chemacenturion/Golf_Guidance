@@ -27,3 +27,17 @@ a.nav-link {
     top: 0;
     left: 0;
 }
+
+.scoring__table {
+    background-color: whitesmoke;
+    text-align: center;
+}
+
+.scoring__table-saved-courses {
+    background-color: white;
+    text-align: center;
+}
+
+.course__database {
+    list-style-type: none;
+}
