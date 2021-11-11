@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Card, Row, Col } from 'react-bootstrap';
 import { loadStripe } from '@stripe/stripe-js';
-import logo from '../images/scorecard.png'
 
 
 
@@ -13,12 +12,16 @@ export default function Shop() {
         {
             id: 1,
             name: "Hat",
-            price: "1000"
+            price: "$15.00",
+            image:"https://github.com/chemacenturion/react_portfolio/blob/main/src/images/jate.gif?raw=true",
+
         },
         {
             id: 2,
             name: "Shirt",
-            price: "2000"
+            price: "$25.00",
+            image:"https://github.com/chemacenturion/react_portfolio/blob/main/src/images/fitnessTracker.gif?raw=true",
+
         }
     ]);
 
@@ -98,7 +101,7 @@ export default function Shop() {
                             </div>
                         </Col>
                         <Col>
-                            <img src={logo} alt="blank" />
+                        <img src={product.image} className="card-img" alt={product.name} />
                         </Col>
                     </Row>
                 </Card>
