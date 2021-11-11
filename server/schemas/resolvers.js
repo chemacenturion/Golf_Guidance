@@ -133,7 +133,11 @@ Query: {
       },
       
       removeCourseData: async (parent, { courseId }) => {
-        return Course.findOneAndDelete({ _id: courseId });
+        const deletedCourse = await Course.findOneAndDelete(
+          { _id: courseId }
+          
+        );
+        return deletedCourse;
       },
 
       login: async (parent, { email, password }) => {

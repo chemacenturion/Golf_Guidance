@@ -106,13 +106,10 @@ mutation addCourseData(
 `;
 
 export const REMOVE_COURSE_DATA = gql`
-  mutation removeCourseData(
-    $id: ID!
-  ) {
-    removeCourseData(
-      id: $id
-    ) {
-      id
-    }
-  }
+ mutation removeCourseData($courseId: ID!) {
+   removeCourseData(courseId: $courseId){
+     _id
+     courseName
+   }
+ }
 `;
