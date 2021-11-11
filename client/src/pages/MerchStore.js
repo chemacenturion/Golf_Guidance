@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Card, Row, Col } from 'react-bootstrap';
 import { loadStripe } from '@stripe/stripe-js';
+import logo from '../images/scorecard.png'
 
 
 
@@ -18,11 +19,6 @@ export default function Shop() {
             id: 2,
             name: "Shirt",
             price: "2000"
-        },
-        {
-            id: 3,
-            name: "Glove",
-            price: "1000"
         }
     ]);
 
@@ -92,24 +88,22 @@ export default function Shop() {
 
         return (
             <>
-                <section>
-                    <div className="product">
-                        <img
-                            src="https://i.imgur.com/EHyR2nP.png"
-                            alt="The cover of Stubborn Attachments"
-                        />
-                        <div className="description">
-                            <h3>Stubborn Attachments</h3>
-                            <h5>$20.00</h5>
-                        </div>
-                    </div>
-                    {/* <form action="/create-checkout-session" method="POST">
-                        <button type="submit">
-                            Checkout
-                        </button>
-                    </form> */}
-                    <button onClick={e => handleClick(e)}>try me out</button>
-                </section>
+            {products.map(product => (
+                <Card className="shadow-sm m-2 p-2" key={product.id}>
+                    <Row>
+                        <Col>
+                            <h5>{product.name}</h5>
+                            <p>{product.price}</p>
+                            <div>
+                                <button onClick={(e) => {setSelectedProduct(product); handleClick(e)}}  className="btn btn-success">Select</button>
+                            </div>
+                        </Col>
+                        <Col>
+                            <img src={logo} alt="blank" />
+                        </Col>
+                    </Row>
+                </Card>
+            ))}
             </>
         )
     }
@@ -126,22 +120,7 @@ export default function Shop() {
            <h1> use this credit card number as a test:</h1>
            <p>4242424242424242</p>
 
-            {products.map(product => (
-                <Card className="shadow-sm m-2 p-2" key={product.id}>
-                    <Row>
-                        <Col>
-                            <h5>{product.name}</h5>
-                            <p>{product.price}</p>
-                            <div>
-                                <button onClick={() => setSelectedProduct(product)} className="btn btn-success">Select</button>
-                            </div>
-                        </Col>
-                        <Col>
-
-                        </Col>
-                    </Row>
-                </Card>
-            ))}
+            
 
 
 
