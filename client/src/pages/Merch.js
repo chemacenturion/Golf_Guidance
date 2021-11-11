@@ -13,14 +13,14 @@ export default function Shop() {
             id: 1,
             name: "Hat",
             price: "$15.00",
-            image:"https://github.com/chemacenturion/react_portfolio/blob/main/src/images/jate.gif?raw=true",
+            image:"https://github.com/chemacenturion/Golf_Guidance/blob/main/client/src/images/hat.png?raw=true",
 
         },
         {
             id: 2,
             name: "Shirt",
             price: "$25.00",
-            image:"https://github.com/chemacenturion/react_portfolio/blob/main/src/images/fitnessTracker.gif?raw=true",
+            image:"https://github.com/chemacenturion/Golf_Guidance/blob/main/client/src/images/shirt.png?raw=true",
 
         }
     ]);
