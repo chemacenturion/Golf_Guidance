@@ -12,14 +12,14 @@ export default function Shop() {
         {
             id: 1,
             name: "OG Golf Guidance Hat",
-            price: "$15.00",
+            price: "1500",
             image:"https://github.com/chemacenturion/Golf_Guidance/blob/main/client/src/images/hat1.png?raw=true",
 
         },
         {
             id: 2,
             name: "OG Golf Guidance Polo",
-            price: "$25.00",
+            price: "2500",
             image:"https://github.com/chemacenturion/Golf_Guidance/blob/main/client/src/images/shirt1.png?raw=true",
 
         }
@@ -95,7 +95,7 @@ export default function Shop() {
                     <Row>
                         <Col>
                             <h5>{product.name}</h5>
-                            <p>{product.price}</p>
+                            <p>${product.price}</p>
                             <div>
                                 <button onClick={(e) => {setSelectedProduct(product); handleClick(e)}}  className="btn btn-success">Select</button>
                             </div>
