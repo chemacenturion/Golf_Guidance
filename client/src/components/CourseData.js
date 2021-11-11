@@ -13,9 +13,9 @@ function CourseData() {
     return (
     
       <div>
+        <ul className="course__database">
           {courses && courses.map((items) => (
-        <ul className="course__database" key={items._id}>
-            <li>
+            <li key={items._id} >
               {items.courseName}
               <br/>
               <Button variant="secondary" className='m-1' size="sm">
@@ -25,10 +25,10 @@ function CourseData() {
               Delete
               </Button>
               </li>
-            
+           ))} 
         </ul>
             
-        ))}
+        
       </div>
 
   );

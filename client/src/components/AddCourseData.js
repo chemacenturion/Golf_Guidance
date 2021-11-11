@@ -2,64 +2,73 @@ import { useMutation } from '@apollo/client';
 import React, { useState } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { ADD_COURSE_DATA } from '../utils/mutations';
+import { useHistory } from 'react-router-dom';
 
-function AddCourseData(props) {
+function AddCourseData() {
 
     const [formState, setFormState] = useState({
-        courseName: null,
-        par: null,
-        slopeRating: null,
-        courseRating: null,
-        holeOnePar: null,
-        holeTwoPar: null,
-        holeThreePar: null,
-        holeFourPar: null,
-        holeFivePar: null,
-        holeSixPar: null,
-        holeSevenPar: null,
-        holeEightPar: null,
-        holeNinePar: null,
-        holeTenPar: null,
-        holeElevenPar: null,
-        holeTwelvePar: null,
-        holeThirteenPar: null,
-        holeFourteenPar: null,
-        holeFifteenPar: null,
-        holeSixteenPar: null,
-        holeSeventeenPar: null,
-        holeEighteenPar: null
+        courseName: "",
+        par: "",
+        slopeRating: "",
+        courseRating: "",
+        holeOnePar: "",
+        holeTwoPar: "",
+        holeThreePar: "",
+        holeFourPar: "",
+        holeFivePar: "",
+        holeSixPar: "",
+        holeSevenPar: "",
+        holeEightPar: "",
+        holeNinePar: "",
+        holeTenPar: "",
+        holeElevenPar: "",
+        holeTwelvePar: "",
+        holeThirteenPar: "",
+        holeFourteenPar: "",
+        holeFifteenPar: "",
+        holeSixteenPar: "",
+        holeSeventeenPar: "",
+        holeEighteenPar: ""
     });
 
-    const [addCourseData] = useMutation(ADD_COURSE_DATA);
-
+    const [addCourseData, { error }] = useMutation(ADD_COURSE_DATA);
+    const history = useHistory()
     const onSubmit = async (event) => {
         event.preventDefault();
-        const mutationResponse = await addCourseData({
-            variables: {
-                courseName: formState.courseName,
-                par: formState.par,
-                slopeRating: formState.slopeRating,
-                courseRating: formState.courseRating,
-                holeOnePar: formState.holeOnePar,
-                holeTwoPar: formState.holeTwoPar,
-                holeThreePar: formState.holeThreePar,
-                holeFourPar: formState.holeFourPar,
-                holeFivePar: formState.holeFivePar,
-                holeSixPar: formState.holeSixPar,
-                holeSevenPar: formState.holeSevenPar,
-                holeEightPar: formState.holeEightPar,
-                holeNinePar: formState.holeNinePar,
-                holeTenPar: formState.holeTenPar,
-                holeElevenPar: formState.holeElevenPar,
-                holeTwelvePar: formState.holeTwelvePar,
-                holeThirteenPar: formState.holeThirteenPar,
-                holeFourteenPar: formState.holeFourteenPar,
-                holeFifteenPar: formState.holeFifteenPar,
-                holeSixteenPar: formState.holeSixteenPar,
-                holeSeventeenPar: formState.holeSeventeenPar,
-                holeEighteenPar: formState.holeEighteenPar
-            },
-        });
+        console.log(typeof formState.slopeRating)
+        let copy={...formState}
+        copy.courseRating=parseFloat(copy.courseRating)
+        copy.par=parseInt(copy.par)
+        copy.slopeRating=parseInt(copy.slopeRating)
+        copy.holeOnePar=parseInt(copy.holeOnePar)
+        copy.holeTwoPar=parseInt(copy.holeTwoPar)
+        copy.holeThreePar=parseInt(copy.holeThreePar)
+        copy.holeFourPar=parseInt(copy.holeFourPar)
+        copy.holeFivePar=parseInt(copy.holeFivePar)
+        copy.holeSixPar=parseInt(copy.holeSixPar)
+        copy.holeSevenPar=parseInt(copy.holeSevenPar)
+        copy.holeEightPar=parseInt(copy.holeEightPar)
+        copy.holeNinePar=parseInt(copy.holeNinePar)
+        copy.holeTenPar=parseInt(copy.holeTenPar)
+        copy.holeElevenPar=parseInt(copy.holeElevenPar)
+        copy.holeTwelvePar=parseInt(copy.holeTwelvePar)
+        copy.holeThirteenPar=parseInt(copy.holeThirteenPar)
+        copy.holeFourteenPar=parseInt(copy.holeFourteenPar)
+        copy.holeFifteenPar=parseInt(copy.holeFifteenPar)
+        copy.holeSixteenPar=parseInt(copy.holeSixteenPar)
+        copy.holeSeventeenPar=parseInt(copy.holeSeventeenPar)
+        copy.holeEighteenPar=parseInt(copy.holeEighteenPar)
+        try {
+          const data = await addCourseData({
+            variables: { ...copy },
+          });
+          
+        } catch (err) {
+          console.error(err);
+        } finally {
+            history.go(0);
+          console.log('Hey im here')
+        }
     }
 
     const onChange = (event) => {
