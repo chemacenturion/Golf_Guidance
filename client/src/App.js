@@ -11,7 +11,8 @@ import Register from './pages/Register';
 import Navigation from './components/Navigation';
 import Merch from './pages/Merch';
 import Scorecard from './pages/Scorecard';
-import Cart from './pages/Cart'; 
+import Cancel from './pages/Cancel'; 
+import Success from './pages/Success'
 
 
 const httpLink = createHttpLink({
@@ -44,7 +45,8 @@ function App() {
                         <Route exact path='/Register' component={Register}/>
                         <Route exact path='/Merch' component={Merch}/>
                         <Route exact path='/Scorecard' component={Scorecard}/>
-                        <Route exact path='/Cart/:id' component={Cart}/>
+                        <Route exact path='/Success' component={Success}/>
+                        <Route exact path='/Cancel' component={Cancel}/>
                     </Switch>
             </Router>
         </ApolloProvider>

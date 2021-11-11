@@ -41,3 +41,24 @@ a.nav-link {
 .course__database {
     list-style-type: none;
 }
+
+.cancel-text {
+    z-index: 100;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+.success-text {
+    z-index: 100;
+    text-align: center;
+    color: white;
+}
+
+.fore-image {
+    z-index: -99;
+    height: auto;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}

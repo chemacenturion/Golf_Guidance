@@ -53,9 +53,9 @@ app.post('/create-checkout-session', async (req, res) => {
       'card',
     ],
     mode: 'payment',
-    // eventually, make sure to replace these with the real URL of the app (not localhost)
-    success_url: `http://localhost:3000/success`,
-    cancel_url: `http://localhost:3000/cancel`,
+
+    success_url: `https://golf-guidance.herokuapp.com/success`,
+    cancel_url: `https://golf-guidance.herokuapp.com/cancel`,
   });
 
 
