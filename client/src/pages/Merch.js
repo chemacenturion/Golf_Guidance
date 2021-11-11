@@ -11,16 +11,16 @@ export default function Shop() {
     const [products, setProducts] = useState([
         {
             id: 1,
-            name: "Hat",
+            name: "OG Golf Guidance Hat",
             price: "$15.00",
-            image:"https://github.com/chemacenturion/Golf_Guidance/blob/main/client/src/images/hat.png?raw=true",
+            image:"https://github.com/chemacenturion/Golf_Guidance/blob/main/client/src/images/hat1.png?raw=true",
 
         },
         {
             id: 2,
-            name: "Shirt",
+            name: "OG Golf Guidance Polo",
             price: "$25.00",
-            image:"https://github.com/chemacenturion/Golf_Guidance/blob/main/client/src/images/shirt.png?raw=true",
+            image:"https://github.com/chemacenturion/Golf_Guidance/blob/main/client/src/images/shirt1.png?raw=true",
 
         }
     ]);
