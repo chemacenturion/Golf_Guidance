@@ -34,11 +34,12 @@ const Scorecard = () => {
                 onHide={() => setModalShow(false)} />
             </div>
         </>
-        
-        <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
-        <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
-        <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
-        <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
+        <ReactPlayer url='https://youtu.be/QAoqOSOgEQQ' />
+        <ReactPlayer url='https://youtu.be/O5U0XbrnSuA' />
+        <ReactPlayer url='https://youtu.be/CgW8bVBZl9M' />
+        <ReactPlayer url='https://youtu.be/9r5hhYklgLw' />
+        <ReactPlayer url='https://youtu.be/nHSvrP2RiMo' />
+        <ReactPlayer url='https://youtu.be/ijihpr5nFbU' />
         </Row>
         </Container>
     )
