@@ -12,6 +12,7 @@ import Navigation from './components/Navigation';
 import Merch from './pages/Merch';
 import Scorecard from './pages/Scorecard';
 import Cart from './pages/Cart'; 
+import MerchStore from './pages/MerchStore'
 
 
 const httpLink = createHttpLink({
@@ -43,6 +44,7 @@ function App() {
                         <Route exact path='/Login' component={Login}/>
                         <Route exact path='/Register' component={Register}/>
                         <Route exact path='/Merch' component={Merch}/>
+                        <Route exact path='/MerchStore' component={MerchStore}/>
                         <Route exact path='/Scorecard' component={Scorecard}/>
                         <Route exact path='/Cart/:id' component={Cart}/>
                     </Switch>
