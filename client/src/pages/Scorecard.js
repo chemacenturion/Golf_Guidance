@@ -1,13 +1,18 @@
 import React from 'react'
 import CourseData from '../components/CourseData'
-import { Container, Button } from 'react-bootstrap'
+import { Container, Button, Row, Col } from 'react-bootstrap'
 import AddCourseModal from '../components/AddCourseModal'
+import ReactPlayer from 'react-player/youtube'
+
 const Scorecard = () => {
 
     const [modalShow, setModalShow] = React.useState(false);
 
     return (
-        <Container className="mt-5 scoring__table">
+        <Container>
+        <Row>
+        <>
+        <div className="mt-5 scoring__table">
             <h1>Welcome to the Scoring Table</h1>
                 <div className="scoring__table-saved-courses">
                     <h2>Stored Courses</h2>
@@ -26,8 +31,15 @@ const Scorecard = () => {
             
             <AddCourseModal
                 show={modalShow}
-                onHide={() => setModalShow(false)}
-            />
+                onHide={() => setModalShow(false)} />
+            </div>
+        </>
+        
+        <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
+        <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
+        <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
+        <ReactPlayer url='https://www.youtube.com/watch?v=ysz5S6PUM-U' />
+        </Row>
         </Container>
     )
 }
