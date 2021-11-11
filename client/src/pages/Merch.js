@@ -95,7 +95,7 @@ export default function Shop() {
                     <Row>
                         <Col>
                             <h5>{product.name}</h5>
-                            <p>${product.price}</p>
+                            <p>${product.price/100}.00</p>
                             <div>
                                 <button onClick={(e) => {setSelectedProduct(product); handleClick(e)}}  className="btn btn-success">Select</button>
                             </div>
