@@ -103,6 +103,7 @@ const typeDefs = gql`
     addPurchase(merch: [ID]!): Purchase
     updateMerch(_id: ID!, quantity: Int!): Merch
     login(email: String!, password: String!): Auth
+    removeCourseData(courseId: ID!): Course
     
   }
 `;

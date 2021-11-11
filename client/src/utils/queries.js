@@ -3,6 +3,7 @@ import { gql } from '@apollo/client';
 export const GET_COURSES = gql`
 query getCourses {
   getCourses {
+    _id
     courseName
     par
     courseRating
@@ -27,6 +28,7 @@ query getCourses {
     holeEighteenPar
   }
 }`
+
 export const GET_MERCH = gql`
 query getMerch {
   merch {

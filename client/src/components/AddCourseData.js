@@ -31,7 +31,7 @@ function AddCourseData() {
         holeEighteenPar: ""
     });
 
-    const [addCourseData, { error }] = useMutation(ADD_COURSE_DATA);
+    const [addCourseData] = useMutation(ADD_COURSE_DATA);
     const history = useHistory()
     const onSubmit = async (event) => {
         event.preventDefault();

@@ -1,9 +1,7 @@
 import React from 'react'
 import CourseData from '../components/CourseData'
-import AddCourseData from '../components/AddCourseData'
 import { Container, Button } from 'react-bootstrap'
 import AddCourseModal from '../components/AddCourseModal'
-
 const Scorecard = () => {
 
     const [modalShow, setModalShow] = React.useState(false);

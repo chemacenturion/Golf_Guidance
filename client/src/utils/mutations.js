@@ -104,3 +104,15 @@ mutation addCourseData(
   }
 }
 `;
+
+export const REMOVE_COURSE_DATA = gql`
+  mutation removeCourseData(
+    $id: ID!
+  ) {
+    removeCourseData(
+      id: $id
+    ) {
+      id
+    }
+  }
+`;
