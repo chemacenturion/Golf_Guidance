@@ -1,7 +1,9 @@
 # Golf_Guidance
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-​
+
+![GOLFguidance](https://github.com/chemacenturion/Golf_Guidance/blob/main/client/src/images/Screenshot.png?raw=true)
+
 ## Table of Contents
 ​
 * [Description](#Description)
@@ -20,11 +22,13 @@ Golf guidance is a single page web application in which the user can find golf i
 
 ## Screenshot:
 
+![GOLFguidance](https://github.com/chemacenturion/Golf_Guidance/blob/main/client/src/images/final2.gif?raw=true)
 
+![GOLFguidance](https://github.com/chemacenturion/Golf_Guidance/blob/main/client/src/images/final1.gif?raw=true)
 
 ## Deployed:
 
-https://vast-eyrie-51403.herokuapp.com/
+https://golf-guidance.herokuapp.com/
 
 ## Technologies Used:
 ​
@@ -34,14 +38,21 @@ https://vast-eyrie-51403.herokuapp.com/
 4. Express
 5. React
 6. Bcrypt
-7. Bootstrap
+7. React-Bootstrap
 8. GraphQL
 9. Axios
 10. JSON Web Tokens
 11. Apollo 
 
-​## Installation:
-​
+## Installation:
+1. Client-side: npm run start: "react-scripts start"
+2. Server-side: npm run start: "node server.js"
+3. Root Folder: npm run start: "node server/server.js",
+             npm run develop: "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+             npm install: "cd server && npm i && cd ../client && npm i",
+             npm run seed: "cd server && npm run seed",
+             npm run build: "cd client && npm run build"
+
 Visit this link: https://golf-guidance.herokuapp.com/
 ​
 ## Usage:
