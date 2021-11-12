@@ -9,11 +9,11 @@
 * [Description](#Description)
 * [Screenshot](#Screenshot)
 * [Deployment](#Deployment)
+* [Technologies-Used](#Technologies-Used)
 * [Installation](#Installation)
 * [Usage](#Usage)
 * [License](#License)
-* [Contributions](#Contributions)
-* [Reporting](#Reporting)
+* [Contributors](#Contributors)
 * [Tests](#Tests)
 * [Questions](#Questions)
 ​
@@ -26,11 +26,11 @@ Golf guidance is a single page web application in which the user can find golf i
 
 ![GOLFguidance](https://github.com/chemacenturion/Golf_Guidance/blob/main/client/src/images/final1.gif?raw=true)
 
-## Deployed:
+## Deployment:
 
 https://golf-guidance.herokuapp.com/
 
-## Technologies Used:
+## Technologies-Used:
 ​
 1. HTML & CSS
 2. JavaScript
